@@ -1,15 +1,18 @@
-import React from "react";
 import CopyrightIcon from "@mui/icons-material/Copyright";
+import styled from "styled-components";
 
 const Footer = () => {
   return (
-    <div>
+    <Container>
       <CopyrightIcon />
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
-      blanditiis, corrupti itaque minima ipsum sit odio rem quia in ut
-      reiciendis asperiores accusantium assumenda perspiciatis deleniti, alias
-      error qui modi!
-    </div>
+      2023 Lorem Ipsum, LCC. All rights reserved.
+    </Container>
   );
 };
+
 export default Footer;
+
+const Container = styled.div`
+  text-align: center;
+  color: grey;
+`;
