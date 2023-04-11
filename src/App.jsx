@@ -8,10 +8,12 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
+import MovieInfo from "./pages/MovieInfo";
 
 const App = () => (
   <Routes>
     <Route path={ROUTES.HOME} element={<Home />} exact />
+    <Route path={ROUTES.MOVIE} element={<MovieInfo />} exact />
     <Route path={ROUTES.PROFILE} element={<Profile />} exact />
     <Route path={ROUTES.REGISTER} element={<Register />} exact />
     <Route path={ROUTES.SETTINGS} element={<Settings />} exact />

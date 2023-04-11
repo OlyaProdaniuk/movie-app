@@ -67,7 +67,7 @@ const Home = () => {
         ))}
       </section>
       <Footer />
-      <CookieBanner />
+      {/* <CookieBanner /> */}
     </div>
   );
 };

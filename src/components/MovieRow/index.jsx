@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import ROUTES from "../../constants/routes";
+import { FaStar } from "react-icons/fa";
 
 import styled from "styled-components";
 
-function MovieRow({ title, movies }) {
+function MovieRow({ title, movies, showLink = true }) {
   const [scrollX, setScrollX] = useState(0);
 
   const handleLeftArrow = () => {
@@ -47,6 +50,10 @@ function MovieRow({ title, movies }) {
                   src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
                   alt={item.original_title}
                 />
+
+                {showLink && (
+                  <Link to={`/movie-info/${item.id}`}>More info</Link>
+                )}
               </RowItem>
             ))}
         </MovieRowList>
