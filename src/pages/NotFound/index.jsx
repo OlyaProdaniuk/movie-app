@@ -8,10 +8,8 @@ import ROUTES from "../../constants/routes";
 function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 }
-// simple MUI alert instead
 
 function CustomizedSnackbars() {
-  const alertRef = React.forwardRef(Alert());
   return (
     <Stack spacing={2} sx={{ width: "100%" }}>
       <Link to={ROUTES.HOME}>

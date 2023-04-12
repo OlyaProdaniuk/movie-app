@@ -52,21 +52,25 @@ const SingleMovie = () => {
                 </TitleH3>
 
                 <TitleH3>
-                  <CategorySpan>Budget:</CategorySpan>{" "}
+                  <CategorySpan>Budget: </CategorySpan>{" "}
                   {formatCurrency(movie.budget)}
                 </TitleH3>
 
                 <TitleH3>
-                  <CategorySpan>Revenue:</CategorySpan>{" "}
+                  <CategorySpan>Revenue: </CategorySpan>{" "}
                   {formatCurrency(movie.revenue)}
                 </TitleH3>
 
                 <TitleH3>
-                  <CategorySpan>Runtime:</CategorySpan> {movie.runtime} Minutes
+                  <CategorySpan>Runtime: </CategorySpan> {movie.runtime} Minutes
+                </TitleH3>
+                <TitleH3>
+                  <CategorySpan>Rating: </CategorySpan>
+                  {movie.vote_average}
                 </TitleH3>
 
                 <Synopsis>
-                  <CategorySpan>Synopsis:</CategorySpan>
+                  <CategorySpan>Synopsis: </CategorySpan>
                   {movie.overview}
                 </Synopsis>
               </MovieInfo>
@@ -86,7 +90,7 @@ const Main = styled.div`
 const MovieContainer = styled.div`
   display: flex;
   text-align: center;
-  padding-bottom: 200px;
+
   height: 100%;
   display: -webkit-box;
   -webkit-line-clamp: 5;
@@ -102,11 +106,14 @@ const MovieContainer = styled.div`
 `;
 
 const TextBlock = styled.div`
+  padding-top: 10px;
+  padding-bottom: 230px;
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   background: linear-gradient(to right, #111 20%, transparent 98%);
-  margin-top: 100px;
+
   position: absolute;
   background-color: none;
   color: white;
@@ -115,7 +122,7 @@ const TextBlock = styled.div`
 const MovieTitle = styled.h2`
   font-size: 70px;
   font-weight: 700;
-  margin-top: 20;
+
   color: #b1983c;
 `;
 const MovieInfo = styled.div`
@@ -130,7 +137,6 @@ const MovieInfo = styled.div`
 
 const TitleH3 = styled.h3`
   font-weight: 300;
-  margin-top: 15px;
   font-size: 20px;
   color: white;
   max-width: 50%;
@@ -140,9 +146,8 @@ const TitleH3 = styled.h3`
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   @media (max-width: 760px) {
-    font-size: 14px;
+    font-size: 20px;
     max-width: 100%;
-    opacity: 0;
   }
   @media (max-width: 440px) {
     color: white;

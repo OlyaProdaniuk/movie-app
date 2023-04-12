@@ -96,7 +96,7 @@ const LabelStyled = styled.label`
 `;
 const InputStyled = styled.input`
   margin: 0.5rem 0;
-  margin-bottom: 30px;
+
   width: 300px;
   height: 40px;
   border-radius: 10px;

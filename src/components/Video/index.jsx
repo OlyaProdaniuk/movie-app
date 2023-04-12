@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { API_KEY, API_BASE } from "../../api";
 import VideoModal from "./Modal";
@@ -8,13 +8,11 @@ import styled from "styled-components";
 
 const Video = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const [movie, setMovie] = useState(null);
   const [videoUrl, setVideoUrl] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
-
-  const goBack = () => navigate(-1);
+  const [isOpen, setOpen] = useState(false);
 
   const movieFetch = async (url) => {
     const req = await fetch(
@@ -41,17 +39,18 @@ const Video = () => {
   return (
     <DivStyled>
       {movie && (
-        <>
-          <div>
-            <ScorePlayBtn movie={movie} handleOpenModal={handleOpenModal} />
-          </div>
-        </>
+        <div>
+          <ScorePlayBtn movie={movie} handleOpenModal={handleOpenModal} />
+        </div>
       )}
 
       <VideoModal
         isPlaying={isPlaying}
         handleCloseModal={handleCloseModal}
         videoUrl={videoUrl}
+        autoplay
+        isOpen={isOpen}
+        onClose={() => setOpen(false)}
       />
     </DivStyled>
   );

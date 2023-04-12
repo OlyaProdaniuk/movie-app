@@ -10,12 +10,6 @@ const VideoModal = ({ isPlaying, handleCloseModal, videoUrl }) => {
       onRequestClose={handleCloseModal}
       className="video-modal"
     >
-      <button
-        onClick={handleCloseModal}
-        className="mt-4 rounded-full border bg-[#1e293b] px-4 py-2 text-[#b5cdf5] hover:bg-[#303e54]"
-      >
-        X
-      </button>
       <ReactPlayer
         url={videoUrl}
         controls={true}
@@ -33,4 +27,7 @@ const StyledModal = styled(ReactModal)`
   width: 100%;
   height: 100vh;
   margin-top: 40px;
+  margin-left: 250px;
+  @media (max-width: 760) {
+  }
 `;
