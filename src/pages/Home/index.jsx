@@ -7,12 +7,9 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer/index";
 import getHomeList from "../../api/getHomeList";
 import getMovieInfo from "../../api/getMovieInfo";
-import CookieBanner from "../../components/CookieConsent";
 
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
-
-// setError,
 
 const Home = () => {
   const [movieList, setMovieList] = useState([]);
@@ -67,7 +64,6 @@ const Home = () => {
         ))}
       </section>
       <Footer />
-      {/* <CookieBanner /> */}
     </div>
   );
 };

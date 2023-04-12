@@ -17,5 +17,3 @@ const Profile = () => (
   </div>
 );
 export default Profile;
-
-// change all components to arrow function

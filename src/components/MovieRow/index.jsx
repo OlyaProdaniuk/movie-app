@@ -1,9 +1,8 @@
+import React from "react";
+
 import { useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import ROUTES from "../../constants/routes";
-import { FaStar } from "react-icons/fa";
-
 import styled from "styled-components";
 
 function MovieRow({ title, movies, showLink = true }) {
@@ -52,7 +51,7 @@ function MovieRow({ title, movies, showLink = true }) {
                 />
 
                 {showLink && (
-                  <Link to={`/movie-info/${item.id}`}>More info</Link>
+                  <LinkInfo to={`/movie-info/${item.id}`}>More info</LinkInfo>
                 )}
               </RowItem>
             ))}
@@ -133,5 +132,12 @@ const RowItem = styled.div`
     :hover {
       transform: scale(1);
     }
+  }
+`;
+const LinkInfo = styled(Link)`
+  color: white;
+  text-decoration: none;
+  :hover {
+    color: red;
   }
 `;

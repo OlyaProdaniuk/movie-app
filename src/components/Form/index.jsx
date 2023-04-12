@@ -1,72 +1,83 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import ROUTES from "../../constants/routes";
 import { Link } from "react-router-dom";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
 const Form = () => {
-  const [user, setUser] = useState({ email: null, pass: null });
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [error, setError] = useState("");
-
-  // const handleClick = (e) => {
-  //   return alert("Here should be a register form");
-  // };
-
-  const handleChange = (e) => {
-    if (!e.target.value) {
-      setError(`${e.target.name} is not provided`);
-    }
-    if (e.target.value.length > 10) {
-      setError(`${e.target.name} is too long`);
-    }
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
-  console.log({ user });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!e.target.value) {
-      setError("Please fill in the form");
-    }
-  };
+  const schema = Yup.object().shape({
+    email: Yup.string()
+      .required("Email is a required field")
+      .email("Invalid email format"),
+    password: Yup.string()
+      .required("Password is a required field")
+      .min(8, "Password must be at least 8 characters"),
+  });
 
   return (
-    <Container onChange={handleChange}>
-      <h1>Login</h1>
-      <Form1>
-        <Label1 htmlFor="email">email</Label1>
-        <Input1
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="email"
-        />
-        <Label1 htmlFor="password">password</Label1>
-        <Input1
-          name="password"
-          value={pass}
-          onChange={(e) => setPass(e.target.value)}
-          type="password"
-          placeholder="password"
-        />
-
-        <Submit type="submit" onSubmit={handleSubmit}>
-          Log in
-        </Submit>
-        {error && <Paragraph>{error}</Paragraph>}
-      </Form1>
-      <Link to={ROUTES.REGISTER}>
-        <Button2>
-          No account yet? <br /> Register here
-        </Button2>
-      </Link>
-    </Container>
+    <>
+      <Formik
+        validationSchema={schema}
+        initialValues={{ email: "", password: "" }}
+        onSubmit={(values) => {
+          alert(JSON.stringify(values));
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+        }) => (
+          <Container onChange={handleChange}>
+            <h1>Login</h1>
+            <FormStyled>
+              <LabelStyled htmlFor="email">email</LabelStyled>
+              <InputStyled
+                type="email"
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                placeholder="Enter email id / username"
+                className="form-control inp_text"
+                id="email"
+              />
+              <p className="error">
+                {errors.email && touched.email && errors.email}
+              </p>
+              <LabelStyled htmlFor="password">password</LabelStyled>
+              <InputStyled
+                type="password"
+                name="password"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+                placeholder="Enter password"
+                className="form-control"
+              />
+              <p className="error">
+                {errors.password && touched.password && errors.password}
+              </p>
+              <Submit type="submit" onSubmit={handleSubmit}>
+                Log in
+              </Submit>
+            </FormStyled>
+            <Link to={ROUTES.REGISTER}>
+              <ButtonStyled>
+                No account yet? <br /> Register here
+              </ButtonStyled>
+            </Link>
+          </Container>
+        )}
+      </Formik>
+    </>
   );
 };
 export default Form;
-//rename Label1/Input1 to Styled...
+
 const Container = styled.div`
   text-align: center;
   display: flex;
@@ -75,15 +86,15 @@ const Container = styled.div`
   justify-content: center;
   padding-top: 30px;
 `;
-const Form1 = styled.form`
+const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
 `;
-const Label1 = styled.label`
+const LabelStyled = styled.label`
   text-align: left;
   padding: 5px;
 `;
-const Input1 = styled.input`
+const InputStyled = styled.input`
   margin: 0.5rem 0;
   margin-bottom: 30px;
   width: 300px;
@@ -91,7 +102,7 @@ const Input1 = styled.input`
   border-radius: 10px;
   border: none;
   ::placeholder {
-    padding-left: 20px;
+    padding-inline-start: 20px;
   }
 `;
 const Submit = styled.button`
@@ -108,7 +119,7 @@ const Submit = styled.button`
     opacity: 0.8;
   }
 `;
-const Button2 = styled.button`
+const ButtonStyled = styled.button`
   background: none;
   color: white;
   border: none;

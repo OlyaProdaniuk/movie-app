@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-//formic for form validation
-//proptypes
-//clean states etc
-//styled comp rename
-//formic for form + disabled button
-
 const RegisterForm = () => {
   const [user, setUser] = useState({ email: null, pass: null });
   const [name, setName] = useState("");

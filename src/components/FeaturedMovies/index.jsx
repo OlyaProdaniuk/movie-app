@@ -1,9 +1,8 @@
 import Button from "@mui/material/Button";
 
 import styled from "styled-components";
-//item rename to movie add proptypes
-// rename folder name + name of the component
-function Featured({ item }) {
+
+const Featured = ({ item, movie, handleOpenModal }) => {
   const genres = item.genres?.map((genre) => genre.name);
 
   console.log(item);
@@ -34,7 +33,7 @@ function Featured({ item }) {
           </FeaturedGenres>
           <FeaturedDescription>{item.overview}</FeaturedDescription>
           <WatchButton>
-            <WatchButtonLink href={`/watch/${item.id}`}>
+            <WatchButtonLink href={`/video/${item.id}`}>
               <Button sx={{ color: "black", border: "50px" }}>Watch now</Button>
             </WatchButtonLink>
           </WatchButton>
@@ -42,7 +41,7 @@ function Featured({ item }) {
       </FeaturedVertical>
     </FeaturedMovie>
   );
-}
+};
 export default Featured;
 
 const FeaturedMovie = styled.section`
@@ -69,8 +68,8 @@ const FeaturedHorizontal = styled.div`
 `;
 const FeaturedName = styled.div`
   font-size: 60px;
-  font-weight: bold;
-  color: white;
+  font-weight: 700;
+  color: #b1983c;
   @media (max-width: 760px) {
     font-size: 30px;
   }

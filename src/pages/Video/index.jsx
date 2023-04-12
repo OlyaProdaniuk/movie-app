@@ -1,19 +1,19 @@
 import React from "react";
-import SingleMovie from "../../components/MovieCard/index";
+import Video from "../../components/Video/index";
 import ROUTES from "../../constants/routes";
 import { Link } from "react-router-dom";
 
 import HomeIcon from "@mui/icons-material/Home";
 
-const MovieInfo = () => (
+const Register = () => (
   <div>
     <Link to={ROUTES.HOME}>
       <HomeIcon
         htmlColor="white"
-        sx={{ marginLeft: "20px", marginTop: "10px", marginBottom: "20px" }}
+        sx={{ marginLeft: "20px", marginTop: "10px" }}
       />
     </Link>
-    <SingleMovie />
+    <Video />
   </div>
 );
-export default MovieInfo;
+export default Register;
