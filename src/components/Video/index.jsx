@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { API_KEY, API_BASE } from "../../api";
 import VideoModal from "./Modal";
-import ScorePlayBtn from "./PlayButton";
+import PlayBtn from "./PlayButton";
 import styled from "styled-components";
 
 const Video = () => {
@@ -40,7 +40,7 @@ const Video = () => {
     <DivStyled>
       {movie && (
         <div>
-          <ScorePlayBtn movie={movie} handleOpenModal={handleOpenModal} />
+          <PlayBtn movie={movie} handleOpenModal={handleOpenModal} />
         </div>
       )}
 

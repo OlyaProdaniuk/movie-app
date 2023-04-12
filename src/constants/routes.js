@@ -1,5 +1,5 @@
 const ROUTES = {
-  HOME: "/movie-app",
+  HOME: "/",
   PROFILE: "/profile",
   SETTINGS: "/settings",
   NOTFOUND: "/404",
