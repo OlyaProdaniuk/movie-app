@@ -1,6 +1,7 @@
 import Button from "@mui/material/Button";
 
 import styled from "styled-components";
+import PlayBtn from "../Video/PlayButton";
 
 const Featured = ({ item, movie, handleOpenModal }) => {
   const genres = item.genres?.map((genre) => genre.name);
@@ -34,7 +35,16 @@ const Featured = ({ item, movie, handleOpenModal }) => {
           <FeaturedDescription>{item.overview}</FeaturedDescription>
           <WatchButton>
             <WatchButtonLink href={`/video/${item.id}`}>
-              <Button sx={{ color: "black", border: "50px" }}>Watch now</Button>
+              <Button
+                sx={{ color: "black", border: "50px" }}
+                onClick={() =>
+                  handleOpenModal(
+                    `https://www.youtube.com/watch?v=${movie.videos.results[0].key}`
+                  )
+                }
+              >
+                Watch now
+              </Button>
             </WatchButtonLink>
           </WatchButton>
         </FeaturedHorizontal>

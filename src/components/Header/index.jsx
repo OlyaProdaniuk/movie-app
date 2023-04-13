@@ -8,14 +8,14 @@ import styled from "styled-components";
 
 function Header() {
   return (
-    <header>
+    <header className="black">
       <HeaderUser>
         <Link to={ROUTES.PROFILE}>
-          <Person2SharpIcon htmlColor="white" sx={{ marginRight: "30px" }} />
+          <HeaderIconUser />
         </Link>
 
         <Link to={ROUTES.SETTINGS}>
-          <SettingsOutlinedIcon htmlColor="white" />
+          <HeaderIconSettings />
         </Link>
       </HeaderUser>
     </header>
@@ -34,6 +34,22 @@ const HeaderUser = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  background: transparent;
+  background: transperent;
   transition: all ease 0.5s;
+  :hover {
+    color: red;
+  }
+`;
+const HeaderIconUser = styled(Person2SharpIcon)`
+  margin-right: 30px;
+  color: white;
+  :hover {
+    color: red;
+  }
+`;
+const HeaderIconSettings = styled(SettingsOutlinedIcon)`
+  color: white;
+  :hover {
+    color: red;
+  }
 `;

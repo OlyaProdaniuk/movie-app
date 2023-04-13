@@ -8,7 +8,7 @@ const VideoModal = ({ isPlaying, handleCloseModal, videoUrl }) => {
     <StyledModal
       isOpen={isPlaying}
       onRequestClose={handleCloseModal}
-      className="video-modal"
+      ariaHideApp={false}
     >
       <ReactPlayer
         url={videoUrl}

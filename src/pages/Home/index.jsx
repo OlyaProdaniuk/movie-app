@@ -48,7 +48,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header black={blackHeader} />
+      <Header className={blackHeader ? "black" : "header"} />
       {featuredData && <Featured item={featuredData} />}
 
       {!movieList.length && (

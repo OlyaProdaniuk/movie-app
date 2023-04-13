@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import styled from "styled-components";
 
-const ScorePlayBtn = ({ movie, handleOpenModal }) => {
+const PlayBtn = ({ movie, handleOpenModal }) => {
   return (
     <div>
       {movie.videos.results.length > 0 && (
@@ -21,7 +21,7 @@ const ScorePlayBtn = ({ movie, handleOpenModal }) => {
   );
 };
 
-export default ScorePlayBtn;
+export default PlayBtn;
 
 const StyledButton = styled(Button)`
   cursor: pointer;

@@ -60,7 +60,9 @@ const SingleMovie = () => {
                   <CategorySpan>Revenue: </CategorySpan>{" "}
                   {formatCurrency(movie.revenue)}
                 </TitleH3>
-
+                <TitleH3>
+                  <CategorySpan>Release: </CategorySpan> {movie.release_date}
+                </TitleH3>
                 <TitleH3>
                   <CategorySpan>Runtime: </CategorySpan> {movie.runtime} Minutes
                 </TitleH3>
@@ -116,13 +118,12 @@ const TextBlock = styled.div`
 
   position: absolute;
   background-color: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
 `;
 
 const MovieTitle = styled.h2`
-  font-size: 70px;
+  font-size: 80px;
   font-weight: 700;
-
   color: #b1983c;
 `;
 const MovieInfo = styled.div`
@@ -133,12 +134,13 @@ const MovieInfo = styled.div`
   align-items: center;
   align-items: flex-start;
   margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
 `;
 
 const TitleH3 = styled.h3`
   font-weight: 300;
   font-size: 20px;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   max-width: 50%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -166,4 +168,5 @@ const Synopsis = styled.h3`
 `;
 const StyledParagr = styled.p`
   font-weight: 400;
+  color: #b1983c;
 `;
